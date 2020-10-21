@@ -233,7 +233,7 @@ if __name__ =="__main__":
             subprocess.call('shutdown /p /f')
 
         elif "restart pc" in query:
-            os.system("shutdown /r /t 1");
+            os.system("shutdown /r /t 1")
 
         elif "hibernate" in query:
             subprocess.call(["shutdown", "/h"])
