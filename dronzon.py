@@ -37,7 +37,7 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 
 ######################################################################### functions####################################################################################
-client = wolframalpha.Client("KUKU9X-7A3EEEP68H")
+client = wolframalpha.Client("KEY")
 
 
 def speak(audio):
@@ -83,7 +83,7 @@ def takecommand():
 
 
 def create_dir():
-    parent_dir = "C:\\Users\\ravina sheoran\\Desktop"
+    parent_dir = "PATH"
     speak("Name the folder")
     dic_name = takecommand()
     
@@ -97,7 +97,7 @@ def create_dir():
 
 
 def delete_dir():
-    parent_dir = "C:\\Users\\ravina sheoran\\Desktop"
+    parent_dir = "PATH"
     speak("name the folder")
     dic_name = takecommand()
     try:
@@ -115,7 +115,7 @@ def take_pic():
     result = True
     while(result):
         ret,frame = videoCaptureObject.read()
-        cv2.imwrite("C:/Users/ravina sheoran/Desktop/Dronzon/pic/newpic"+str(time.time())+".jpg",frame)
+        cv2.imwrite("PATH"+str(time.time())+".jpg",frame)
         #cv2.imshow("NewPicture.jpg",frame)
         result = False
     videoCaptureObject.release()
@@ -123,25 +123,25 @@ def take_pic():
 
 
 def message_to():
-    acc_id='AC2e9463331614e5eb291e9c3e884af6ac'
-    auth_token ='cc2c3fcbeefdcf401baa7ab79aee5fbd'
+    acc_id='KEY'
+    auth_token ='TOKEN'
     client =Client(acc_id, auth_token)
     message=client.messages.create(
         body= "jai mata di",
-        from_ = '+12019285099',
-        to= "+918239675766"
+        from_ = 'ID NO',
+        to= "PHN NO"
         )
     print(message.sid)
 
 
 def make_call():
-    acc_id='AC2e9463331614e5eb291e9c3e884af6ac'
-    auth_token ='cc2c3fcbeefdcf401baa7ab79aee5fbd'
+    acc_id='KEY'
+    auth_token ='TOKEN'
     client =Client(acc_id, auth_token)
     call=client.calls.create(
         
-        from_ = '+12019285099',
-        to= "+918058450553",
+        from_ = 'ID NO',
+        to= "PHONE NO",
         url = "https://www.youtube.com/redirect?v=-AChTCBoTUM&event=video_description&q=https%3A%2F%2Fwww.twilio.com%2Fdocs%2Fguides%2Fhow-to-make-outbound-phone-calls-in-python&redir_token=vyUST3aQLsV51i_Y76rDDiLCnVp8MTU5Mjk4MTkwM0AxNTkyODk1NTAz"
         )
     print(call.sid)
@@ -288,8 +288,8 @@ if __name__ =="__main__":
             speak("enjoy"+res)
             os.startfile(os.path.join(music_dir, song[0]))
 
-        elif "play movie" in query:#yo bhi naa kaam kr rho 
-            movie_dir="C:/Users/ravina sheoran/Desktop/Music/Telegram Desktop"
+        elif "play movie" in query:
+            movie_dir="PATH OF MUSIC DIR"
             movie = os.listdir(movie_dir)
             speak("enjoy"+res)
             os.startfile(os.path.join(movie_dir, movie[0]))
@@ -460,8 +460,8 @@ if __name__ =="__main__":
         elif "login facebook" in query:
            
             
-            username = "8058450553"
-            password ="hloindia"
+            username = "USERID"
+            password ="PASSWORD"
             url = "https://www.facebook.com/"
             driver = webdriver.Chrome("C:/Users/ASHISH SAINI/Downloads/chromedriver_win32/chromedriver.exe")
             driver.get(url)
@@ -486,12 +486,12 @@ if __name__ =="__main__":
         elif "send mail" in query:
             s= smtplib.SMTP("smtp.gmail.com", 587)
             s.starttls()
-            s.login("merayaar2h@gmail.com", "jaibhole123")
+            s.login("MAILID", "PASSWORD")
             message= "ye le mail"
-            s.sendmail("merayaar2h@gmail.com","ashish.m.saini999@gmail.com", message)
+            s.sendmail("YOUR MAIL ID","TO MAIL ID", message)
             
-        elif "what's the weather" in query or "what is the weather" in query:#yo bhi kaam naa kr 
-            owm = pyowm.OWM("f7c20d7a30fd7b8182bb9846aa310941")
+        elif "what's the weather" in query or "what is the weather" in query:
+            owm = pyowm.OWM("KEY")
             place = owm.weather_at_place("pilani")
             weth = place.get_weather()
             Speak(weth)
